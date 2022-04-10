@@ -4,11 +4,113 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-3 h-75">
+                    <form>
+                        <div class="mb-3">
+                            <!-- <label for="citySearch" class="form-label">Search for a City:</label> -->
+                            <h2>Search for a City:</h2>
+                            <input type="text" class="form-control" id="citySearch">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Search</button>
+                    </form>
+
+                </div>
+                <div class="col-9">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 current-weather">
+                                <h3 id="currentCity">City (Date) Condition-Icon</h3>
+                                <p>Temp: </p>
+                                <p>Wind: </p>
+                                <p>Humidity: </p>
+                                <p>UV Index: </p>
+                            </div>
+                                <div class="col-12">
+                                    <h4>5-Day Forecast:</h4>
+                                </div>
+                            <div class="container d-flex justify-content-between five-day-box">
+                                <div class="five-day-card">
+                                    <h5 class="card-title" id="forecast1">Date</h5>
+                                    <p class="card-text">Condition-Icon</p>
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                                <div class="five-day-card">
+                                    <h5 class="card-title" id="forecast2">Date</h5>
+                                    <p class="card-text">Condition-Icon</p>
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                                <div class="five-day-card">
+                                    <h5 class="card-title" id="forecast3">Date</h5>
+                                    <p class="card-text">Condition-Icon</p>
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                                <div class="five-day-card">
+                                    <h5 class="card-title" id="forecast4">Date</h5>
+                                    <p class="card-text">Condition-Icon</p>
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                                <div class="five-day-card">
+                                    <h5 class="card-title" id="forecast5">Date</h5>
+                                    <p class="card-text">Condition-Icon</p>
+                                    <p class="card-text">Temp: </p>
+                                    <p class="card-text">Wind: </p>
+                                    <p class="card-text">Humidity: </p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+    </main>
     
     <script src="./script.js"></script>
 </body>
 </html>
+
+
+
+<!--
+Notes from Library of Congress mini project
+
+2 different HTML pages, one for initial search page, one for search results
+
+Search Keyword and Format inputs
+
+google font (no jquery or bootstrap)
+jass.css
+style.css is custom styles like font family
+
+div class center container flex-row aligncenter
+
+3 elements: resulttext, resultcontent, searchform
+
+*always prevent the default behavior
+
+locQueryUrl = 'https://www.loc.gov/search/?fo=json'
+if format {
+
+}
+
+how to var a query string with parameters
+var queryString = "www.asmiovbasdnkfl.com/dmfioa?parameter="+var+"otherparameter="+var
+-->

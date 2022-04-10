@@ -1,3 +1,54 @@
 body {
     background-color: darkcyan;
 }
+
+header {
+    background-image: linear-gradient(to right, skyblue, navy);
+    height: fit-content;
+    padding: 10px;
+}
+
+main {
+    min-height: 100vh;
+    margin: 20px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+form {
+    padding-bottom: 15px;
+    border-bottom: 2px solid darkslategray;
+}
+
+.current-weather {
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.forecast-card {
+    margin-top: 10px;
+}
+
+.five-day-box {
+    padding: 5px;
+}
+
+.five-day-card {
+    background-color: brown;
+    min-width: 150px;
+    padding: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+    .five-day-box {
+        flex-direction: column;
+    }
+
+    .five-day-card {
+        margin: 10px;
+    }
+}
