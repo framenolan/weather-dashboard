@@ -19,62 +19,38 @@
                 <div class="col-3 h-75" id="sidebar">
                     <form id="city-search-form">
                         <div class="mb-3">
-                            <!-- <label for="citySearch" class="form-label">Search for a City:</label> -->
                             <h2>Search for a City:</h2>
                             <input type="text" class="form-control" id="city-search-value">
                         </div>
                         <button type="submit" class="btn btn-primary w-100" id="search-button">Search</button>
                     </form>
-
+                    <div id="saved-searches" class="mt-2">
+                    </div>
                 </div>
                 <div class="col-9">
                     <div class="container">
                         <div class="row">
                             <div class="col-12 current-weather" id="currentResponse">
-                                <h3 id="currentCity">City (Date) Condition-Icon</h3>
-                                <p id="currentTemp">Temp: </p>
-                                <p>Wind: </p>
-                                <p>Humidity: </p>
-                                <p>UV Index: </p>
+                                <h3 id="current-citydate">Current Weather Conditions</h3>
                             </div>
                                 <div class="col-12">
                                     <h4>5-Day Forecast:</h4>
                                 </div>
                             <div class="container d-flex justify-content-between five-day-box">
-                                <div class="five-day-card">
-                                    <h5 class="card-title" id="forecast0">Date</h5>
-                                    <p class="card-text" id="condition1">Condition-Icon</p>
-                                    <p class="card-text" id="temp1">Temp: </p>
-                                    <p class="card-text" id="wind1">Wind: </p>
-                                    <p class="card-text" id="humidity1">Humidity: </p>
+                                <div class="five-day-card" id="forecastCard1">
+                                    <h5 class="card-title" id="forecastDate1">Date</h5>
                                 </div>
-                                <div class="five-day-card">
-                                    <h5 class="card-title" id="forecast1">Date</h5>
-                                    <p class="card-text">Condition-Icon</p>
-                                    <p class="card-text">Temp: </p>
-                                    <p class="card-text">Wind: </p>
-                                    <p class="card-text">Humidity: </p>
+                                <div class="five-day-card" id="forecastCard2">
+                                    <h5 class="card-title" id="forecastDate2">Date</h5>
                                 </div>
-                                <div class="five-day-card">
-                                    <h5 class="card-title" id="forecast2">Date</h5>
-                                    <p class="card-text">Condition-Icon</p>
-                                    <p class="card-text">Temp: </p>
-                                    <p class="card-text">Wind: </p>
-                                    <p class="card-text">Humidity: </p>
+                                <div class="five-day-card" id="forecastCard3">
+                                    <h5 class="card-title" id="forecastDate3">Date</h5>
                                 </div>
-                                <div class="five-day-card">
-                                    <h5 class="card-title" id="forecast3">Date</h5>
-                                    <p class="card-text">Condition-Icon</p>
-                                    <p class="card-text">Temp: </p>
-                                    <p class="card-text">Wind: </p>
-                                    <p class="card-text">Humidity: </p>
+                                <div class="five-day-card" id="forecastCard4">
+                                    <h5 class="card-title" id="forecastDate4">Date</h5>
                                 </div>
-                                <div class="five-day-card">
-                                    <h5 class="card-title" id="forecast4">Date</h5>
-                                    <p class="card-text">Condition-Icon</p>
-                                    <p class="card-text">Temp: </p>
-                                    <p class="card-text">Wind: </p>
-                                    <p class="card-text">Humidity: </p>
+                                <div class="five-day-card" id="forecastCard5">
+                                    <h5 class="card-title" id="forecastDate5">Date</h5>
                                 </div>
                             </div>
                         </div>

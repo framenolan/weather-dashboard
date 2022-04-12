@@ -1,19 +1,8 @@
 var searchFormEl = document.querySelector('#city-search-form');
 var searchCityEl = document.querySelector("#city-search-value");
 
-console.log(searchFormEl)
-console.log(searchCityEl)
-
 var apiKey = "71a0527b60357e324a7126bf56e7c80b"
 var today = moment();
-console.log(today.format("MM/DD/YYYY"))
-var city = "Seattle"
-// var lat = 44
-// var lon = -122.33
-
-// var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}&units=imperial`
-var weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
-
 
 
 // Form Submit Handler for triggering search function on search submit
@@ -25,19 +14,37 @@ var formSubmitHandler = function (event) {
     console.log(searchCity)    
     
     if (searchCity) {
+        localStorage.setItem(searchCity, searchCity)
+        recentSearches(searchCity)
         weatherUrlCall(searchCity)
     } else {
         console.log("error, no search value")
     }
 };
 
+function recentSearches(searchCity) {
+    var newSearchResult = localStorage.getItem(searchCity)
+    console.log(newSearchResult)
+
+    var newResultEl = document.createElement('button')
+    var saveSearchesEl = document.querySelector('#saved-searches')
+    newResultEl.setAttribute("value", newResultEl)
+    newResultEl.setAttribute("class", "btn btn-primary w-100 mt-1")
+    newResultEl.textContent = newSearchResult
+    saveSearchesEl.append(newResultEl)
+}
+
+// function to re-search based on button value
+    // form submit handler called
+    // maybe duplicate the formSubmitHandler code within the recentSearches function?
+    // need to used event bubbling to do this within the #saved-searches element
 
 function weatherUrlCall (city) {
     var city = city
     console.log("weatherURLCalled")
     console.log(city)
 
-    fetch(weatherUrl)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`)
     .then(function (response) {
         if (!response.ok) {
             throw new Error('response not okay')
@@ -55,16 +62,18 @@ function weatherUrlCall (city) {
             console.log(cityLon)
             lat = cityLat
             lon = cityLon
-            oneCallUrlCall(lat,lon);
+            city = data.name
+            oneCallUrlCall(lat,lon,city);
         }
     })
 };
 
 
-function oneCallUrlCall (lat,lon) {
+function oneCallUrlCall (lat,lon,city) {
     console.log("oneCallUrl Called")
     console.log(lat)
     console.log(lon)
+    console.log(city)
 
     var lat = lat
     var lon = lon    
@@ -84,7 +93,6 @@ function oneCallUrlCall (lat,lon) {
         return response.json();
     })
     .then(function (data) {
-        console.log("fetch.then.then")
         console.log(data);
         if (data.legnth === 0) {
             console.log('no results')
@@ -99,33 +107,11 @@ function oneCallUrlCall (lat,lon) {
                 
                 var reformatDate = date * 1000
                 reformatDate = moment(reformatDate).format("MM/DD/YYYY")
-                
-                
+
                 if (i === 0) {
-                    // Current condition data pulled here
-
-                    // reformat
-
-                    console.log(reformatDate)
-                    console.log(conditionIcon)
-                    console.log(temp)
-                    console.log(wind)
-                    console.log(humidity)
-                    console.log(uvi)
-
-                    // function to printCurrent(i)
-
-
-
-                } else {
-                    // Pull 5 day forecast data points here
-                    console.log(reformatDate)
-                    console.log(conditionIcon)
-                    console.log(temp)
-                    console.log(wind)
-                    console.log(humidity)
-                    // function to printForecast(i)
-
+                    printCurrent(reformatDate,conditionIcon,temp,wind,humidity,uvi,city)                    
+                } else {                  
+                    printForecast(i,reformatDate,conditionIcon,temp,wind,humidity,city)
                 }
             }
         }
@@ -133,16 +119,80 @@ function oneCallUrlCall (lat,lon) {
 }
 
 
-// function printCurrent(i) {
+function printCurrent(reformatDate,conditionIcon,temp,wind,humidity,uvi,city) {
+    var currentSituationEl = document.querySelector('#currentResponse')
+    var currentCityDateEl = document.querySelector('#current-citydate')
 
-// }
+    var currentConditionEl = document.createElement('img')
+    var currentTempEl = document.createElement('p')
+    var currentWindEl = document.createElement('p')
+    var currentHumidityEl = document.createElement('p')
+    var currentUviEl = document.createElement('p')
 
-// function printForecast(i) {
+    currentConditionEl.setAttribute('id', 'current-condition')
+    currentConditionEl.setAttribute('src', `http://openweathermap.org/img/wn/${conditionIcon}@2x.png`)
+    currentTempEl.setAttribute('id', 'current-temp')
+    currentWindEl.setAttribute('id', 'current-wind')
+    currentHumidityEl.setAttribute('id', 'current-humidity')
+    currentUviEl.setAttribute('id', 'current-uvi')
+    
+    var currentCityDate = `${city} ${reformatDate}`
+    var currentTemp = `Temp:  ${temp}° F`
+    var currentWind = `Wind Speed: ${wind} mph`
+    var currentHumidity = `Humidity: ${humidity}%`
+    var currentUvi = `UVI: ${uvi}`
+    
+    currentCityDateEl.textContent = currentCityDate
+    currentTempEl.textContent = currentTemp
+    currentWindEl.textContent = currentWind
+    currentHumidityEl.textContent = currentHumidity
+    currentUviEl.textContent = currentUvi
+    
+    currentSituationEl.append(currentConditionEl)
+    currentSituationEl.append(currentTempEl)
+    currentSituationEl.append(currentWindEl)
+    currentSituationEl.append(currentHumidityEl)
+    currentSituationEl.append(currentUviEl)
+}
 
-// }
+
+function printForecast(i,reformatDate,conditionIcon,temp,wind,humidity,city) {
+
+    var forecastSituationEl = document.querySelector(`#forecastCard${i}`)
+    var forecastCityDateEl = document.querySelector(`#forecastDate${i}`)
+
+    var forecastConditionEl = document.createElement('img')
+    var forecastTempEl = document.createElement('p')
+    var forecastWindEl = document.createElement('p')
+    var forecastHumidityEl = document.createElement('p')
+
+    forecastConditionEl.setAttribute('id', `forecast-condition${i}`)
+    forecastConditionEl.setAttribute('src', `http://openweathermap.org/img/wn/${conditionIcon}@2x.png`)
+    forecastTempEl.setAttribute('id', `forecast-temp${i}`)
+    forecastWindEl.setAttribute('id', `forecast-wind${i}`)
+    forecastHumidityEl.setAttribute('id', `forecast-humidity${i}`)
+    
+    var forecastCityDate = `${city} ${reformatDate}`
+    var forecastTemp = `Temp:  ${temp}° F`
+    var forecastWind = `Wind Speed: ${wind} mph`
+    var forecastHumidity = `Humidity: ${humidity}%`
+    
+    forecastCityDateEl.textContent = forecastCityDate
+    forecastTempEl.textContent = forecastTemp
+    forecastWindEl.textContent = forecastWind
+    forecastHumidityEl.textContent = forecastHumidity
+    
+    forecastSituationEl.append(forecastConditionEl)
+    forecastSituationEl.append(forecastTempEl)
+    forecastSituationEl.append(forecastWindEl)
+    forecastSituationEl.append(forecastHumidityEl)
+}
 
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
+
+// how to pass value through this submit handler???
+// recentSearchesEl.addEventListener("submit", formSubmitHandler);
 
 
 
