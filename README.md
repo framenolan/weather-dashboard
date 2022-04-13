@@ -33,3 +33,10 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+
+## My Notes
+
+When creating this app, I used the Bootstrap framework to build the structure of the page and expedite the styling. A for loop was used to pull 6 days worth of data and print them to the appropiate page location. I had a difficult time getting the event bubbling to work on re-searching previous searches, but using jquery made it easier with some help from a classmate (Chuan). I also started down the road using local storage for the recent searches, but since it wasn't a technical requirement, just having them available in the current session would suffice.
+
+## Image
+
