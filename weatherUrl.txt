@@ -1,0 +1,43 @@
+base: "stations"
+clouds:
+  all: 75
+  [[Prototype]]: Object
+cod: 200
+coord:
+  lat: 47.6062
+  lon: -122.3321
+  [[Prototype]]: Object
+dt: 1649723215
+id: 5809844
+main:
+  feels_like: 48.18
+  humidity: 44
+  pressure: 1004
+  temp: 51.28
+  temp_max: 54.95
+  temp_min: 43.41
+  [[Prototype]]: Object
+name: "Seattle"
+sys:
+  country: "US"
+  id: 2004026
+  sunrise: 1649683662
+  sunset: 1649731949
+  type: 2
+  [[Prototype]]: Object
+timezone: -25200
+visibility: 10000
+weather: Array(1)
+  0:
+    description: "broken clouds"
+    icon: "04d"
+    id: 803
+    main: "Clouds"
+    [[Prototype]]: Object
+  length: 1
+  [[Prototype]]: Array(0)
+wind:
+  deg: 340
+  speed: 12.66
+  [[Prototype]]: Object
+[[Prototype]]: Object
