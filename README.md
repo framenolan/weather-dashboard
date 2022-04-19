@@ -1,14 +1,13 @@
-# weather-dashboard
+# Weather Dashboard
 
-## Deployed Site
+[Deployed Site](https://framenolan.github.io/weather-dashboard/)
 
-https://framenolan.github.io/weather-dashboard/
-
-## The Task
-
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
-
-Use the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities. Read through the documentation for setup and usage instructions. You will use `localStorage` to store any persistent data. For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).
+## Table of Contents
+* [User Story](#user-story)
+* [Acceptance Criteria](#acceptance-criteria)
+* [My Notes](#my-notes)
+* [Technologies](#technologies)
+* [Images](#images)
 
 ## User Story
 
@@ -37,6 +36,12 @@ THEN I am again presented with current and future conditions for that city
 ## My Notes
 
 When creating this app, I used the Bootstrap framework to build the structure of the page and expedite the styling. A for loop was used to pull 6 days worth of data and print them to the appropiate page location. I had a difficult time getting the event bubbling to work on re-searching previous searches, but using jquery made it easier with some help from a classmate (Chuan). I also started down the road using local storage for the recent searches, but since it wasn't a technical requirement, just having them available in the current session would suffice.
+
+## Technologies
+- HTML
+- CSS
+- JavaScript
+- [OpenWeather One Call API](https://openweathermap.org/api/one-call-api)
 
 ## Image
 
