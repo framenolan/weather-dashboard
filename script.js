@@ -59,7 +59,6 @@ function clearPrevious() {
 
 // Calls the Open Weather Map API based on City name, outputs latitude and longitude for more in-depth data
 function weatherUrlCall (city) {
-    let city = city
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`)
     .then(function (response) {
@@ -85,8 +84,6 @@ function weatherUrlCall (city) {
 
 // Calls the API again using latitude and longitude, returns more data than available just on city name
 function oneCallUrlCall (lat,lon,city) {
-    let lat = lat
-    let lon = lon    
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}&units=imperial`
 
     fetch(apiUrl)
