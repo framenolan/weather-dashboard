@@ -3,11 +3,16 @@
 [Deployed Site](https://framenolan.github.io/weather-dashboard/)
 
 ## Table of Contents
+* [Description](#description)
 * [User Story](#user-story)
 * [Acceptance Criteria](#acceptance-criteria)
 * [My Notes](#my-notes)
 * [Technologies](#technologies)
 * [Images](#images)
+
+## Description
+
+This weather dashboard app allows users to search for a city and see the current day forecast for that city, as well as a 5-day forecast. Recent searches are also stored in local storage for quick reference. The app is connected to the Open Weather One Call API.
 
 ## User Story
 
